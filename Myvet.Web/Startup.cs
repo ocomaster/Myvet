@@ -13,7 +13,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Myvet.Web.Data;
 using Myvet.Web.Helpers;
 using Myvet.Web.Helpers.Myvet.Web.Helpers;
-using Myvet.Web.Data;
 using Myvet.Web.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 
@@ -57,6 +56,11 @@ namespace Myvet.Web
             services.AddTransient<SeedDb>();
             services.AddScoped<IUserHelper, UserHelper>();
             services.AddSingleton<UserHelper>();
+
+            services.AddScoped<ICombosHelper, CombosHelper>();
+            services.AddScoped<IConverterHelper, ConverterHelper>();
+
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
